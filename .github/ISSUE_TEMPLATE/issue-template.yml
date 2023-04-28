@@ -1,0 +1,120 @@
+name: Issue Report
+description: Create a report to help us improve ReaR
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to fill out this issue report!
+        _(quick response is not guaranteed with free support)_
+
+        Please use proper GitHub Flavoured Markdown, see "[Basic writing and formatting syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)".
+
+  - type: input
+    id: version
+    attributes:
+      label: ReaR version
+      description: |
+        Please use `rear -V` to get ReaR version.
+    validations:
+      required: false
+
+  - type: textarea
+    id: old-version-reason
+    attributes:
+      label: If your ReaR version is not the current version, explain why you can't upgrade.
+    validations:
+      required: false
+
+  - type: input
+    id: os-version
+    attributes:
+      label: OS version
+      description: |
+        Please use `cat /etc/os-release` or `lsb_release -a` or `cat /etc/rear/os.conf` to get OS version.
+    validations:
+      required: false
+
+  - type: textarea
+    id: configuration-files
+    attributes:
+      label: ReaR configuration files
+      description: |
+        Please use `cat /etc/rear/site.conf` and/or `cat /etc/rear/local.conf` to get ReaR configuration files.
+      placeholder: Please use backticks to correctly format your input.
+    validations:
+      required: false
+
+  - type: input
+    id: hw-vendor-product
+    attributes:
+      label: Hardware vendor/product
+      description: |
+        Please provide information about your hw (PC or PowerNV BareMetal or ARM) or VM (KVM guest or PowerVM LPAR).
+    validations:
+      required: false
+
+  - type: input
+    id: architecture
+    attributes:
+      label: System architecture
+      description: |
+        Please provide information about your system architecture (x86 compatible or PPC64/PPC64LE or what exact ARM device).
+    validations:
+      required: false
+
+  - type: input
+    id: firmware-bootloader
+    attributes:
+      label: Firmware and bootloader
+      description: |
+        Please provide information about your firmware (BIOS or UEFI or Open Firmware) and bootloader (GRUB or ELILO or Petitboot).
+    validations:
+      required: false
+
+  - type: input
+    id: storage
+    attributes:
+      label: Storage
+      description: |
+        Please provide information about your storage (local disk or SSD) and/or SAN (FC or iSCSI or FCoE) and/or multipath (DM or NVMe).
+    validations:
+      required: false
+
+  - type: textarea
+    id: storage-layout
+    attributes:
+      label: Storage layout
+      description: |
+        Please use `lsblk -ipo NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT` to get storage layout.
+      placeholder: This will be automatically formatted into code, so no need for backticks.
+      render: sh
+    validations:
+      required: false
+
+  - type: textarea
+    id: issue-description
+    attributes:
+      label: Description of the issue
+      description: |
+        Please provide a description of the issue (ideally so that others can reproduce it).
+    validations:
+      required: false
+
+  - type: textarea
+    id: workaround
+    attributes:
+      label: Workaround if available
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-info
+    attributes:
+      label: Additional information and attachments
+      description: |
+        Please provide additional information and attachments (`rear -D mkrescue/mkbackup/recover` debug log files).
+        You can drag-drop log files into this editor to create an attachments.
+      placeholder: Please use backticks to correctly format your input.
+    validations:
+      required: false
